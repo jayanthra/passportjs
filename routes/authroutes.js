@@ -15,8 +15,8 @@ router.get('/google', passport.authenticate('google', {
     scope: ['profile']
 }));
 
-router.get('/google/redirect', (req, res) => {
-    res.send('logged in via google');
+router.get('/google/redirect',passport.authenticate('google'), (req, res) => {
+    res.send(req.user);
 });
 
 
@@ -28,8 +28,7 @@ router.get('/twitter/redirect',
         failureRedirect: '/login'
     }),
     function (req, res) {
-        // Successful authentication, redirect home.
-        res.send('logged in via twitter');
+        res.send(req.user);
     });
 
 
