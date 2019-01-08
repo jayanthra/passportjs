@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     username: String,
     googleId: String,
-    twitterId: String,
+    twitterId: String,    
     facebookId: String,
     socialNetwork:String,
     profileImage:String
